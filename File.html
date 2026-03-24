@@ -1,0 +1,2354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar — Vignesh V. | UI/UX Designer</title>
+  <link rel="stylesheet" href="./File.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       SCROLL PROGRESS BAR  (fixed, above navbar)
+  ════════════════════════════════════════════════ -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <!-- ── Logo ─────────────────────────────────── -->
+      <a href="#home" class="nav-logo" onclick="handleNavClick('#home', event)" aria-label="Go to top">
+        Portfolio<span class="logo-dot"></span>
+      </a>
+
+      <!-- ── Desktop links ─────────────────────────── -->
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#home"      class="nav-link" data-section="home"      onclick="handleNavClick('#home',      event)"><span class="link-pill" aria-hidden="true"></span><span class="link-label">Home</span></a></li>
+        <li><a href="#about"     class="nav-link" data-section="about"     onclick="handleNavClick('#about',     event)"><span class="link-pill" aria-hidden="true"></span><span class="link-label">About</span></a></li>
+        <li><a href="#skills"    class="nav-link" data-section="skills"    onclick="handleNavClick('#skills',    event)"><span class="link-pill" aria-hidden="true"></span><span class="link-label">Skills</span></a></li>
+        <li><a href="#services"  class="nav-link" data-section="services"  onclick="handleNavClick('#services',  event)"><span class="link-pill" aria-hidden="true"></span><span class="link-label">Services</span></a></li>
+        <li><a href="#portfolio" class="nav-link" data-section="portfolio" onclick="handleNavClick('#portfolio', event)"><span class="link-pill" aria-hidden="true"></span><span class="link-label">Portfolio</span></a></li>
+        <li><a href="#contact"   class="nav-link" data-section="contact"   onclick="handleNavClick('#contact',   event)"><span class="link-pill" aria-hidden="true"></span><span class="link-label">Contact</span></a></li>
+      </ul>
+
+      <!-- ── Right: Hire Me + Hamburger ─────────────── -->
+      <div class="nav-right">
+        <!-- Desktop CTA -->
+        <a
+          href="#contact"
+          class="btn-hire"
+          onclick="handleNavClick('#contact', event)"
+          aria-label="Hire Vignesh"
+        >
+          Hire Me
+        </a>
+
+        <!-- Hamburger (mobile only) -->
+        <button
+          class="hamburger"
+          id="hamburger"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          onclick="toggleMobile()"
+        >
+          <!-- Menu icon -->
+          <svg class="ham-icon ham-icon--menu" id="iconMenu"
+            xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <line x1="3" y1="6"  x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <!-- X (close) icon -->
+          <svg class="ham-icon ham-icon--close" id="iconClose"
+            xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <line x1="18" y1="6"  x2="6"  y2="18"></line>
+            <line x1="6"  y1="6"  x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Mobile menu ───────────────────────────── -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+      <ul class="mobile-list" role="list">
+
+        <li class="mobile-item" style="--mi: 0">
+          <a href="#home"      class="mobile-link" data-section="home"      onclick="handleNavClick('#home',      event)">
+            <span class="mobile-accent-bar" aria-hidden="true"></span>
+            <span class="mobile-dot" aria-hidden="true"></span>
+            <span class="mobile-label">Home</span>
+            <span class="mobile-shimmer" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <li class="mobile-item" style="--mi: 1">
+          <a href="#about"     class="mobile-link" data-section="about"     onclick="handleNavClick('#about',     event)">
+            <span class="mobile-accent-bar" aria-hidden="true"></span>
+            <span class="mobile-dot" aria-hidden="true"></span>
+            <span class="mobile-label">About</span>
+            <span class="mobile-shimmer" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <li class="mobile-item" style="--mi: 2">
+          <a href="#skills"    class="mobile-link" data-section="skills"    onclick="handleNavClick('#skills',    event)">
+            <span class="mobile-accent-bar" aria-hidden="true"></span>
+            <span class="mobile-dot" aria-hidden="true"></span>
+            <span class="mobile-label">Skills</span>
+            <span class="mobile-shimmer" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <li class="mobile-item" style="--mi: 3">
+          <a href="#services"  class="mobile-link" data-section="services"  onclick="handleNavClick('#services',  event)">
+            <span class="mobile-accent-bar" aria-hidden="true"></span>
+            <span class="mobile-dot" aria-hidden="true"></span>
+            <span class="mobile-label">Services</span>
+            <span class="mobile-shimmer" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <li class="mobile-item" style="--mi: 4">
+          <a href="#portfolio" class="mobile-link" data-section="portfolio" onclick="handleNavClick('#portfolio', event)">
+            <span class="mobile-accent-bar" aria-hidden="true"></span>
+            <span class="mobile-dot" aria-hidden="true"></span>
+            <span class="mobile-label">Portfolio</span>
+            <span class="mobile-shimmer" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <li class="mobile-item" style="--mi: 5">
+          <a href="#contact"   class="mobile-link" data-section="contact"   onclick="handleNavClick('#contact',   event)">
+            <span class="mobile-accent-bar" aria-hidden="true"></span>
+            <span class="mobile-dot" aria-hidden="true"></span>
+            <span class="mobile-label">Contact</span>
+            <span class="mobile-shimmer" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- Mobile Hire Me -->
+        <li class="mobile-hire-row">
+          <a
+            href="#contact"
+            class="mobile-hire-btn"
+            onclick="handleNavClick('#contact', event)"
+          >
+            Hire Me
+          </a>
+        </li>
+
+      </ul>
+    </div><!-- /mobile-menu -->
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════
+       DEMO SECTIONS  (so scroll behaviour is visible)
+  ════════════════════════════════════════════════ -->
+  <section id="home"      class="demo-section" style="background:#0F1235;">
+  <div>
+      <!-- ═══════════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════════ -->
+  <section id="home" class="hero-section">
+
+    <!-- Dot-grid texture -->
+    <div class="hero-dots" aria-hidden="true"></div>
+
+    <!-- Glow blobs -->
+    <div class="hero-blob hero-blob--tr" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob--bl" aria-hidden="true"></div>
+
+    <!-- ── CONTENT ────────────────────────────────── -->
+    <div class="hero-container">
+      <div class="hero-grid">
+
+        <!-- ── LEFT COLUMN ──────────────────────────── -->
+        <div class="hero-left">
+
+          <!-- Available badge -->
+          <div class="anim-item" style="--i:0">
+            <span class="avail-badge">
+              <span class="avail-dot" aria-hidden="true"></span>
+              Available for Work
+            </span>
+          </div>
+
+          <!-- Heading + cycling role -->
+          <div class="anim-item" style="--i:1">
+            <h1 class="hero-title">
+              Hi, I'm <span class="name-gradient">Vignesh</span>
+            </h1>
+
+            <!-- Cycling role ticker -->
+            <div class="role-ticker" aria-live="polite" aria-atomic="true">
+              <span class="role-text" id="roleText">UI/UX Designer</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="hero-desc anim-item" style="--i:2">
+            I specialize in crafting visually stunning, user-friendly digital
+            experiences — blending creative design with solid usability principles
+            to build products that look beautiful and work effortlessly.
+          </p>
+
+          <!-- CTA buttons -->
+          <div class="hero-ctas anim-item" style="--i:3">
+            <a
+              href="https://wa.me/918248048372"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-cyan"
+            >
+              Download CV
+            </a>
+            <a
+              href="#portfolio"
+              class="btn-outline"
+              onclick="smoothTo('portfolio', event)"
+            >
+              View Work
+            </a>
+          </div>
+
+          <!-- Social row -->
+          <div class="social-row anim-item" style="--i:4">
+            <div class="social-icons">
+
+              <!-- LinkedIn -->
+              <a
+                href="https://www.linkedin.com/in/vignesh-v-ev03/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-btn"
+                aria-label="LinkedIn"
+              >
+              <img src="Images/linkedin.png" alt="linkedin" class="iconsize">
+              </a>
+
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/grafizen_stylz"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-btn"
+                aria-label="Instagram"
+              >
+               <img src="Images/instagram.png" alt="linkedin" class="iconsize">
+              </a>
+              <!-- WHATSAPP -->
+              <a
+                href="https://wa.me/918248048372"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-btn"
+                aria-label="Whatsapp"
+              >
+               <img src="Images/whatsapp.png" alt="linkedin" class="iconsize">
+              </a>
+
+
+            </div>
+          </div>
+        </div><!-- /hero-left -->
+
+
+        <!-- ── RIGHT COLUMN — Portrait ─────────────── -->
+        <div class="hero-right anim-portrait">
+
+          <!-- Rotating dashed ring -->
+          <div class="ring-spin" aria-hidden="true"></div>
+
+          <!-- Portrait wrapper (anchors floating chips) -->
+          <div class="portrait-wrap">
+
+            <!-- Glow behind card -->
+            <div class="portrait-glow" aria-hidden="true"></div>
+
+            <!-- Card -->
+            <div class="portrait-card">
+              <!--
+                Replace src with your own photo.
+                Original: figma:asset/68ceb7bed05268b9e80538b6e86e55abcb5ccb74.png
+              -->
+              <img
+                src="Images/me.jpg"
+                alt="Vignesh V. — UI/UX Designer"
+                class="portrait-img"
+              />
+              <!-- Bottom overlay -->
+              <div class="portrait-overlay" aria-hidden="true"></div>
+              <!-- Name tag -->
+              <div class="portrait-namebox">
+                <p class="portrait-name">Vignesh V</p>
+                <p class="portrait-role-tag">UI/UX &amp; Graphic Designer</p>
+              </div>
+            </div>
+
+            <!-- Floating stat chips -->
+            <div class="stat-chip stat-chip--tl anim-chip" style="--chip-delay: 1.0s" aria-label="3+ Years Experience">
+              <span class="chip-value">1+</span>
+              <span class="chip-label">Years Exp.</span>
+            </div>
+
+            <div class="stat-chip stat-chip--mr anim-chip" style="--chip-delay: 1.15s" aria-label="20+ Projects">
+              <span class="chip-value">10+</span>
+              <span class="chip-label">Projects</span>
+            </div>
+
+            <div class="stat-chip stat-chip--bl anim-chip" style="--chip-delay: 1.3s" aria-label="100% Satisfaction">
+              <span class="chip-value">100%</span>
+              <span class="chip-label">Satisfaction</span>
+            </div>
+
+          </div><!-- /portrait-wrap -->
+        </div><!-- /hero-right -->
+
+      </div><!-- /hero-grid -->
+    </div><!-- /hero-container -->
+
+
+    <!-- ── SCROLL CUE ─────────────────────────────── -->
+    <button
+      class="scroll-cue anim-scroll"
+      onclick="smoothTo('about', event)"
+      aria-label="Scroll down to About section"
+    >
+      <span class="scroll-label">Scroll</span>
+      <span class="scroll-circle">
+        <!-- ArrowDown icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </span>
+    </button>
+
+
+    <!-- ── BOTTOM WAVE ────────────────────────────── -->
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1690 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 64C422 0 1267 64 1690 0V64H0Z" fill="#FAFBFF" />
+      </svg>
+    </div>
+
+  </section><!-- /hero-section -->
+
+
+  <!-- ─── Scripts ────────────────────────────────── -->
+  <script>
+    /* ── 1. Smooth scroll helper ─────────────────── */
+    function smoothTo(id, event) {
+      if (event) event.preventDefault();
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ── 2. Cycling role text ─────────────────────── */
+    (function () {
+      var roles = [
+        'UI/UX Designer',
+        'Graphic Designer',
+        'Product Designer',
+        'Visual Storyteller'
+      ];
+      var idx   = 0;
+      var el    = document.getElementById('roleText');
+
+      function cycleRole() {
+        /* Slide out upward */
+        el.classList.add('role-exit');
+
+        setTimeout(function () {
+          idx = (idx + 1) % roles.length;
+          el.textContent = roles[idx];
+          el.classList.remove('role-exit');
+          el.classList.add('role-enter');
+
+          /* Clean enter class once animation finishes */
+          setTimeout(function () {
+            el.classList.remove('role-enter');
+          }, 380);
+        }, 380);
+      }
+
+      setInterval(cycleRole, 2800);
+    })();
+  </script>
+  </div>
+  </section>
+  <section id="about"     class="demo-section" style="background:#111840;">
+    <div>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT SECTION
+  ════════════════════════════════════════════ -->
+  <section id="about" class="about-section">
+
+    <!-- Decorative radial blob (top-right) -->
+    <div class="about-decor-blob" aria-hidden="true"></div>
+
+    <div class="about-container">
+
+      <!-- ── STATS ROW ─────────────────────────── -->
+      <div class="stats-grid" id="statsGrid">
+
+        <div class="stat-card animate-item" style="--delay: 0s">
+          <p class="stat-value" style="color: #2C698D;">1+</p>
+          <p class="stat-label">Years Experience</p>
+        </div>
+
+        <div class="stat-card animate-item" style="--delay: 0.09s">
+          <p class="stat-value" style="color: #2C698D;">10+</p>
+          <p class="stat-label">Projects Done</p>
+        </div>
+
+        <div class="stat-card animate-item" style="--delay: 0.18s">
+          <p class="stat-value" style="color: #2C698D;">15+</p>
+          <p class="stat-label">Happy Clients</p>
+        </div>
+
+        <div class="stat-card animate-item" style="--delay: 0.27s">
+          <p class="stat-value" style="color: #2C698D;">100%</p>
+          <p class="stat-label">Satisfaction</p>
+        </div>
+
+      </div><!-- /stats-grid -->
+
+
+      <!-- ── TWO-COLUMN ────────────────────────── -->
+      <div class="about-grid">
+
+        <!-- LEFT — Portrait + Timeline -->
+        <div class="about-left animate-item" style="--delay: 0.18s">
+
+          <!-- Portrait card -->
+          <div class="portrait-wrap">
+            <div class="portrait-glow" aria-hidden="true"></div>
+            <div class="portrait-card">
+              <!--
+                Replace the src below with your own photo.
+                Original: figma:asset/68ceb7bed05268b9e80538b6e86e55abcb5ccb74.png
+              -->
+              <img
+                src="Images/me.jpg"
+                alt="Vignesh V. — UI/UX Designer"
+                class="portrait-img"
+              />
+              <div class="portrait-overlay" aria-hidden="true"></div>
+              <div class="portrait-footer">
+                <div class="portrait-name-block">
+                  <p class="portrait-name">Vignesh V</p>
+                  <p class="portrait-role">UI/UX &amp; Graphic Designer</p>
+                </div>
+                <span class="open-badge">
+                  <span class="open-dot" aria-hidden="true"></span>
+                  Open to work
+                </span>
+              </div>
+            </div>
+          </div><!-- /portrait-wrap -->
+
+          <!-- Timeline -->
+          <div class="timeline">
+
+            <div class="timeline-item animate-item" style="--delay: 0.35s">
+              <div class="timeline-track">
+                <div class="timeline-icon" style="background: rgba(44,105,141,0.09);">
+                  <!-- Briefcase icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C698D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <div class="timeline-connector" aria-hidden="true"></div>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-year">2025–Present</p>
+                <p class="timeline-title">UI/UX Designer</p>
+                <p class="timeline-sub">DSquare Multitech Private Limited</p>
+              </div>
+            </div>
+
+            <div class="timeline-item animate-item" style="--delay: 0.45s">
+              <div class="timeline-track">
+                <div class="timeline-icon" style="background: rgba(0,125,148,0.09);">
+                  <!-- GraduationCap icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007D94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div class="timeline-connector" aria-hidden="true"></div>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-year">2021–2024</p>
+                <p class="timeline-title">B.Tech Mechanical Engineering</p>
+                <p class="timeline-sub">B. S. Abdur Rahman Crescent Institute Of Science And Technology</p>
+              </div>
+            </div>
+
+            <div class="timeline-item animate-item" style="--delay: 0.55s">
+              <div class="timeline-track">
+                <div class="timeline-icon" style="background: rgba(0,180,216,0.09);">
+                  <!-- Award icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="6"></circle>
+                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
+                  </svg>
+                </div>
+                <!-- No connector for last item -->
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-year">2024–2025</p>
+                <p class="timeline-title">UI UX Design course</p>
+                <p class="timeline-sub">Login360 IT Training Institute </p>
+              </div>
+            </div>
+
+          </div><!-- /timeline -->
+        </div><!-- /about-left -->
+
+
+        <!-- RIGHT — Bio -->
+        <div class="about-right animate-item" style="--delay: 0.22s">
+
+          <!-- Section heading -->
+          <div class="section-heading">
+            <span class="eyebrow">
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              Get to Know Me
+            </span>
+            <h2 class="section-title">
+              Creative Designer<br />Crafting Experiences
+            </h2>
+            <div class="heading-bar" aria-hidden="true"></div>
+          </div>
+
+          <!-- Bio -->
+          <p class="bio-text">
+            I'm a passionate
+            <strong class="bio-highlight">UI/UX Designer and Graphic Designer</strong>
+            who specializes in creating visually striking, user-friendly, and high-converting
+            digital experiences. I blend creative design with usability principles to build
+            products that not only look beautiful but also work effortlessly.
+          </p>
+          <p class="bio-text bio-text--spacer">
+            With a strong eye for detail and a user-first mindset, I help brands transform
+            ideas into engaging digital solutions that leave lasting impressions.
+          </p>
+
+          <!-- Highlights -->
+          <ul class="highlights-list">
+
+            <li class="highlight-item animate-item" style="--delay: 0.5s">
+              <span class="check-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#007D94" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </span>
+              <span>Passionate about user-centered design processes</span>
+            </li>
+
+            <li class="highlight-item animate-item" style="--delay: 0.58s">
+              <span class="check-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#007D94" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </span>
+              <span>Expert in wireframing, prototyping &amp; usability testing</span>
+            </li>
+
+            <li class="highlight-item animate-item" style="--delay: 0.66s">
+              <span class="check-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#007D94" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </span>
+              <span>Strong eye for detail and visual hierarchy</span>
+            </li>
+
+            <li class="highlight-item animate-item" style="--delay: 0.74s">
+              <span class="check-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#007D94" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </span>
+              <span>Bridges the gap between design and real-world usability</span>
+            </li>
+
+          </ul>
+
+          <!-- Tag pills -->
+          <div class="tag-row">
+            <span class="tag tag--light">Branding Design</span>
+            <span class="tag tag--accent">UI/UX Design</span>
+            <span class="tag tag--light">Graphic Design</span>
+            <span class="tag tag--accent">Video Editing</span>
+          </div>
+
+        </div><!-- /about-right -->
+      </div><!-- /about-grid -->
+    </div><!-- /about-container -->
+  </section>
+
+
+  <!-- ─── Scroll-reveal script ───────────────── -->
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.animate-item');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              const delay = el.style.getPropertyValue('--delay') || '0s';
+              el.style.animationDelay = delay;
+              el.classList.add('is-visible');
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+
+      items.forEach((el) => observer.observe(el));
+    })();
+  </script>
+
+    </div>
+  </section>
+  <section id="skills"    class="demo-section" style="background:#0F1235;">
+    <div>
+
+<!-- ═══════════════════════════════════════════════
+     SKILLS SECTION
+════════════════════════════════════════════════ -->
+<section id="skills" class="skills-section">
+
+  <!-- Bottom-right decorative blob -->
+  <div class="sk-blob" aria-hidden="true"></div>
+
+  <div class="sk-container">
+
+    <!-- ── HEADER ──────────────────────────────── -->
+    <div class="sk-header animate-item" style="--delay:0s" id="skHeader">
+      <span class="eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        My Expertise
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </span>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+      <div class="heading-bar" aria-hidden="true"></div>
+    </div>
+
+
+    <!-- ── TWO-COLUMN GRID ────────────────────── -->
+    <div class="sk-grid">
+
+      <!-- ─── Technical Skills card ────────────── -->
+      <div class="sk-card animate-item" style="--delay:0.18s" id="techCard">
+
+        <!-- Card header -->
+        <div class="sk-card-header">
+          <div class="sk-card-icon sk-card-icon--tech" aria-hidden="true">
+            <div class="sk-icon-inner sk-icon-inner--square"></div>
+          </div>
+          <h3 class="sk-card-title">Technical Skills</h3>
+        </div>
+
+        <!-- Skill bars — populated by JS -->
+        <div class="skill-bars" id="skillBars"></div>
+
+      </div><!-- /tech card -->
+
+
+      <!-- ─── Soft Skills card ──────────────────── -->
+      <div class="sk-card animate-item" style="--delay:0.30s" id="softCard">
+
+        <!-- Card header -->
+        <div class="sk-card-header">
+          <div class="sk-card-icon sk-card-icon--soft" aria-hidden="true">
+            <div class="sk-icon-inner sk-icon-inner--circle"></div>
+          </div>
+          <h3 class="sk-card-title">Soft Skills</h3>
+        </div>
+
+        <!-- Soft skill rows — populated by JS -->
+        <div class="soft-rows" id="softRows"></div>
+
+      </div><!-- /soft card -->
+
+    </div><!-- /sk-grid -->
+
+
+    <!-- ── TOOL TAGS ─────────────────────────── -->
+    <div class="tool-tags animate-item" style="--delay:0.50s" id="toolTags" role="list" aria-label="Tools I use">
+      <!-- populated by JS -->
+    </div>
+
+  </div><!-- /sk-container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════ -->
+<script>
+/* ════════════════════════════════════════════════
+   DATA
+═════════════════════════════════════════════════ */
+var TECH_SKILLS = [
+  { name: 'Figma',              pct: 90, from: '#2C698D', to: '#00E6E9', label: '#2C698D' },
+  { name: 'Adobe Photoshop',    pct: 89, from: '#007D94', to: '#00E6E9', label: '#007D94' },
+  { name: 'Adobe Illustrator',  pct: 81, from: '#2C698D', to: '#00E6E9', label: '#2C698D' },
+  { name: 'Balsamiq',           pct: 92, from: '#007D94', to: '#00E6E9', label: '#007D94' },
+  { name: 'Marvel',             pct: 91, from: '#00B4D8', to: '#00E6E9', label: '#00B4D8' },
+  { name: 'Adobe XD',           pct: 79, from: '#2C698D', to: '#00E6E9', label: '#2C698D' },
+];
+
+var SOFT_SKILLS = [
+  { name: 'User Research & Usability Testing', level: 5 },
+  { name: 'Design Thinking & Problem-Solving', level: 5 },
+  { name: 'Visual & Interaction Design',       level: 5 },
+  { name: 'Responsive Design',                 level: 4 },
+  { name: 'Wireframing & Prototyping',         level: 5 },
+  { name: 'HTML & CSS',                        level: 4 },
+];
+
+var TOOLS = ['Figma','Photoshop','Illustrator','Balsamiq','Marvel','Adobe XD','Framer','Maze'];
+
+/* ════════════════════════════════════════════════
+   BUILD SKILL BARS (static, width triggered later)
+═════════════════════════════════════════════════ */
+(function buildBars() {
+  var container = document.getElementById('skillBars');
+  container.innerHTML = TECH_SKILLS.map(function (s, i) {
+    return (
+      '<div class="skill-bar-wrap" data-pct="' + s.pct + '" data-from="' + s.from + '" data-to="' + s.to + '" data-label="' + s.label + '" data-index="' + i + '">' +
+        '<div class="skill-bar-row">' +
+          '<span class="skill-name">' + s.name + '</span>' +
+          '<span class="skill-pct" id="pctLabel' + i + '" style="color:' + s.label + '">0%</span>' +
+        '</div>' +
+        '<div class="skill-track">' +
+          '<div class="skill-fill" id="skillFill' + i + '" style="background: linear-gradient(90deg,' + s.from + ' 0%,' + s.to + ' 100%);"></div>' +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+})();
+
+/* ════════════════════════════════════════════════
+   BUILD SOFT SKILL ROWS (start hidden for slide-in)
+═════════════════════════════════════════════════ */
+(function buildSoft() {
+  var container = document.getElementById('softRows');
+  container.innerHTML = SOFT_SKILLS.map(function (s, i) {
+    /* 5 dots */
+    var dots = '';
+    for (var d = 0; d < 5; d++) {
+      dots += '<span class="dot' + (d < s.level ? ' dot--filled' : '') + '" aria-hidden="true"></span>';
+    }
+    return (
+      '<div class="soft-row slide-item" style="--si:' + i + '; --slide-delay:' + (0.38 + i * 0.07) + 's" role="listitem">' +
+        '<div class="soft-row-left">' +
+          '<span class="soft-bullet" aria-hidden="true"></span>' +
+          '<span class="soft-name">' + s.name + '</span>' +
+        '</div>' +
+        '<div class="dot-rating" aria-label="' + s.level + ' out of 5">' + dots + '</div>' +
+      '</div>'
+    );
+  }).join('');
+})();
+
+/* ════════════════════════════════════════════════
+   BUILD TOOL TAGS
+═════════════════════════════════════════════════ */
+(function buildTools() {
+  var container = document.getElementById('toolTags');
+  container.innerHTML = TOOLS.map(function (t, i) {
+    return (
+      '<span class="tool-pill pop-item" style="--pi:' + i + '; --pop-delay:' + (0.55 + i * 0.05) + 's" role="listitem">' + t + '</span>'
+    );
+  }).join('');
+})();
+
+/* ════════════════════════════════════════════════
+   ANIMATE BARS — staggered width + counter
+   Matches: setTimeout(()=> setWidth(pct), index*110+300)
+═════════════════════════════════════════════════ */
+function animateBars() {
+  TECH_SKILLS.forEach(function (s, i) {
+    var delay = i * 110 + 300; /* exact match to React component */
+    setTimeout(function () {
+      var fill  = document.getElementById('skillFill' + i);
+      var label = document.getElementById('pctLabel' + i);
+      if (fill)  fill.style.width  = s.pct + '%';
+      if (label) label.textContent  = s.pct + '%';
+    }, delay);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   ANIMATE SOFT ROWS — slide in from x:20
+═════════════════════════════════════════════════ */
+function animateSoftRows() {
+  document.querySelectorAll('.slide-item').forEach(function (el) {
+    var delay = parseFloat(el.style.getPropertyValue('--slide-delay')) * 1000;
+    setTimeout(function () {
+      el.classList.add('slide-item--visible');
+    }, delay);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   ANIMATE TOOL PILLS — scale in staggered
+═════════════════════════════════════════════════ */
+function animateTools() {
+  document.querySelectorAll('.pop-item').forEach(function (el) {
+    var delay = parseFloat(el.style.getPropertyValue('--pop-delay')) * 1000;
+    setTimeout(function () {
+      el.classList.add('pop-item--visible');
+    }, delay);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   INTERSECTION OBSERVER
+   — triggers header/cards fade-up
+   — triggers bar + row + tool animations once
+═════════════════════════════════════════════════ */
+var barsTriggered = false;
+
+(function initObservers() {
+  /* 1. Section-level observer for skill bar + soft row triggers */
+  var section = document.getElementById('skills');
+  var sectionObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !barsTriggered) {
+        barsTriggered = true;
+        animateBars();
+        animateSoftRows();
+        animateTools();
+        sectionObs.unobserve(section);
+      }
+    });
+  }, { threshold: 0.08 });
+  sectionObs.observe(section);
+
+  /* 2. Per-element fade-up observer */
+  var items    = document.querySelectorAll('.animate-item');
+  var fadeObs  = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        el.style.animationDelay = el.style.getPropertyValue('--delay') || '0s';
+        el.classList.add('is-visible');
+        fadeObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.08 });
+  items.forEach(function (el) { fadeObs.observe(el); });
+})();
+</script>
+    </div>
+  </section>
+  <section id="services"  class="demo-section" style="background:#111840;">
+   <div>
+
+<!-- ═══════════════════════════════════════════════
+     SERVICES SECTION
+════════════════════════════════════════════════ -->
+<section id="services" class="services-section">
+
+  <!-- Centre radial glow blob -->
+  <div class="sv-blob" aria-hidden="true"></div>
+
+  <div class="sv-container">
+
+    <!-- ── HEADER ────────────────────────────────── -->
+    <div class="sv-header animate-item" style="--delay:0s">
+
+      <!-- Left: eyebrow + title -->
+      <div class="sv-title-block">
+        <span class="eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          What I Offer
+        </span>
+        <h2 class="section-title">My Services</h2>
+        <div class="heading-bar" aria-hidden="true"></div>
+      </div>
+
+      <!-- Right: tagline (desktop only) -->
+      <p class="sv-tagline">
+        Designing digital experiences that are<br />intuitive, beautiful, and user-focused.
+      </p>
+
+    </div><!-- /sv-header -->
+
+
+    <!-- ── SERVICE CARDS ─────────────────────────── -->
+    <div class="sv-grid">
+
+      <!-- ─── Card 01: UI/UX Design ─────────────── -->
+      <article
+        class="service-card animate-item"
+        style="--delay:0.32s"
+        aria-label="UI/UX Design service"
+      >
+        <!-- Top gradient bar (scaleX on hover) -->
+        <div
+          class="card-top-bar"
+          style="background: linear-gradient(90deg, #2C698D 0%, #00E6E9 100%);"
+          aria-hidden="true"
+        ></div>
+
+        <div class="card-body">
+          <!-- Background number -->
+          <span class="card-num" aria-hidden="true">01</span>
+
+          <!-- Icon -->
+          <div
+            class="card-icon"
+            style="background: linear-gradient(135deg, #0F1235 0%, #2C698D 100%);"
+            aria-hidden="true"
+          >
+            <!-- Layers icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+              fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h3 class="card-title">UI/UX Design</h3>
+
+          <!-- Description -->
+          <p class="card-desc">
+            Designing intuitive, user-friendly digital experiences that increase
+            engagement, reduce friction, and delight users at every touchpoint.
+          </p>
+
+          <!-- Tags -->
+          <div class="card-tags">
+            <span class="tag">Wireframing</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Usability Testing</span>
+          </div>
+
+          <!-- CTA link -->
+          <a
+            href="https://www.figma.com/proto/oJv3lxpfcZWmY52j4QhGLf/Untitled?node-id=8-282"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="view-link"
+            style="--accent:#2C698D; color:#2C698D;"
+            aria-label="View UI/UX Design examples on Figma"
+          >
+            View Examples
+            <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+
+      <!-- ─── Card 02: Graphic Design ───────────── -->
+      <article
+        class="service-card animate-item"
+        style="--delay:0.46s"
+        aria-label="Graphic Design service"
+      >
+        <div
+          class="card-top-bar"
+          style="background: linear-gradient(90deg, #007D94 0%, #00E6E9 100%);"
+          aria-hidden="true"
+        ></div>
+
+        <div class="card-body">
+          <span class="card-num" aria-hidden="true">02</span>
+
+          <div
+            class="card-icon"
+            style="background: linear-gradient(135deg, #007D94 0%, #00B4D8 100%);"
+            aria-hidden="true"
+          >
+            <!-- PenTool icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+              fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 19 7-7 3 3-7 7-3-3z"></path>
+              <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+              <path d="m2 2 7.586 7.586"></path>
+              <circle cx="11" cy="11" r="2"></circle>
+            </svg>
+          </div>
+
+          <h3 class="card-title">Graphic Design</h3>
+
+          <p class="card-desc">
+            Creating visually powerful brand identities, marketing assets, and
+            digital illustrations that communicate clearly and captivate audiences.
+          </p>
+
+          <div class="card-tags">
+            <span class="tag">Branding</span>
+            <span class="tag">Illustration</span>
+            <span class="tag">Print &amp; Digital</span>
+          </div>
+
+          <a
+            href="https://www.behance.net/vigneshv90"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="view-link"
+            style="--accent:#007D94; color:#007D94;"
+            aria-label="View Graphic Design examples on Behance"
+          >
+            View Examples
+            <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+
+      <!-- ─── Card 03: UX Strategy ───────────────── -->
+      <article
+        class="service-card animate-item"
+        style="--delay:0.60s"
+        aria-label="UX Strategy service"
+      >
+        <div
+          class="card-top-bar"
+          style="background: linear-gradient(90deg, #1A1F5E 0%, #00B4D8 100%);"
+          aria-hidden="true"
+        ></div>
+
+        <div class="card-body">
+          <span class="card-num" aria-hidden="true">03</span>
+
+          <div
+            class="card-icon"
+            style="background: linear-gradient(135deg, #1A1F5E 0%, #2C698D 100%);"
+            aria-hidden="true"
+          >
+            <!-- BarChart2 icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+              fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6"  y1="20" x2="6"  y2="14"></line>
+            </svg>
+          </div>
+
+          <h3 class="card-title">UX Strategy</h3>
+
+          <p class="card-desc">
+            Optimizing user journeys, information architecture, and product experiences
+            through research-driven design decisions and data insights.
+          </p>
+
+          <div class="card-tags">
+            <span class="tag">User Research</span>
+            <span class="tag">IA</span>
+            <span class="tag">Design Thinking</span>
+          </div>
+
+          <a
+            href="https://www.figma.com/proto/oJv3lxpfcZWmY52j4QhGLf/Untitled?node-id=8-186"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="view-link"
+            style="--accent:#00B4D8; color:#00B4D8;"
+            aria-label="View UX Strategy examples on Figma"
+          >
+            View Examples
+            <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /sv-grid -->
+  </div><!-- /sv-container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPT — IntersectionObserver scroll-reveal
+════════════════════════════════════════════════ -->
+<script>
+  (function () {
+    var items    = document.querySelectorAll('.animate-item');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          /* apply the per-element delay stored in --delay */
+          el.style.animationDelay = el.style.getPropertyValue('--delay') || '0s';
+          el.classList.add('is-visible');
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    items.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+   </div>
+  </section>
+  <section id="portfolio" class="demo-section" style="background:#0F1235;">
+   <div>
+
+<!-- ═══════════════════════════════════════════════
+     PORTFOLIO SECTION
+════════════════════════════════════════════════ -->
+<section id="portfolio" class="portfolio-section">
+
+  <!-- BG ornament blobs -->
+  <div class="pf-blob pf-blob--tr" aria-hidden="true"></div>
+  <div class="pf-blob pf-blob--bl" aria-hidden="true"></div>
+
+  <div class="pf-container">
+
+    <!-- ── HEADER ───────────────────────────────── -->
+    <div class="pf-header animate-item" style="--delay:0s" id="pfHeader">
+
+      <!-- Title block -->
+      <div class="pf-title-block animate-item" style="--delay:0.1s">
+        <span class="eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          My Work
+        </span>
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="heading-bar" aria-hidden="true"></div>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="filter-bar animate-item" style="--delay:0.2s" id="filterBar" role="group" aria-label="Filter projects">
+        <!-- Sliding pill (moved by JS) -->
+        <span class="filter-pill-bg" id="filterPillBg" aria-hidden="true"></span>
+
+        <button class="filter-btn is-active" data-filter="All" onclick="setFilter('All',this)" type="button" aria-pressed="true">
+          <span class="filter-label">All</span>
+          <span class="filter-count" id="cntAll">5</span>
+        </button>
+        <button class="filter-btn" data-filter="UX" onclick="setFilter('UX',this)" type="button" aria-pressed="false">
+          <span class="filter-label">UX Research</span>
+          <span class="filter-count" id="cntUX">2</span>
+        </button>
+        <button class="filter-btn" data-filter="UI" onclick="setFilter('UI',this)" type="button" aria-pressed="false">
+          <span class="filter-label">UI Design</span>
+          <span class="filter-count" id="cntUI">3</span>
+        </button>
+      </div>
+    </div><!-- /pf-header -->
+
+
+    <!-- ── FEATURED CARD (rendered by JS) ────────── -->
+    <div id="featuredWrap" class="featured-wrap"></div>
+
+
+    <!-- ── PROJECT GRID (rendered by JS) ─────────── -->
+    <div id="projectGrid" class="project-grid" role="list" aria-label="Projects"></div>
+
+
+    <!-- ── EMPTY STATE ───────────────────────────── -->
+    <div id="emptyState" class="empty-state hidden" aria-live="polite">
+      No projects in this category yet.
+    </div>
+
+  </div><!-- /pf-container -->
+
+
+  <!-- ══════════════════════════════════════════════
+       LIGHTBOX MODAL
+  ═══════════════════════════════════════════════ -->
+  <div
+    class="lb-backdrop hidden"
+    id="lbBackdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Project details"
+    aria-hidden="true"
+    onclick="closeLightbox(event)"
+  >
+    <div class="lb-modal" id="lbModal" onclick="event.stopPropagation()">
+
+      <!-- Image -->
+      <div class="lb-img-wrap">
+        <img id="lbImage" src="" alt="" class="lb-img" />
+        <div class="lb-img-overlay" aria-hidden="true"></div>
+
+        <!-- Close button -->
+        <button class="lb-close" id="lbCloseBtn" onclick="closeLightbox()" aria-label="Close project detail" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Type + Year badges over image -->
+        <div class="lb-img-badges">
+          <span class="lb-type-badge" id="lbTypeBadge"></span>
+          <span class="lb-year-badge" id="lbYearBadge"></span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="lb-body">
+
+        <!-- Title -->
+        <div>
+          <h3 class="lb-title" id="lbTitle"></h3>
+          <p class="lb-subtitle" id="lbSubtitle"></p>
+        </div>
+
+        <!-- Description -->
+        <p class="lb-desc" id="lbDesc"></p>
+
+        <!-- Tags -->
+        <div class="lb-tags" id="lbTags"></div>
+
+        <!-- Divider -->
+        <div class="lb-divider" aria-hidden="true"></div>
+
+        <!-- CTA row -->
+        <div class="lb-cta-row">
+          <a
+            id="lbFigmaLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="lb-btn-primary"
+          >
+            <!-- Figma icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+              <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+              <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+              <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+              <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+            </svg>
+            Open in Figma
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <button class="lb-btn-close" onclick="closeLightbox()" type="button">Close</button>
+        </div>
+
+      </div><!-- /lb-body -->
+    </div><!-- /lb-modal -->
+  </div><!-- /lb-backdrop -->
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════ -->
+<script>
+/* ════════════════════════════════════════════════
+   PROJECT DATA
+═════════════════════════════════════════════════ */
+var PROJECTS = [
+  {
+    id: 1,
+    title: "LabourZone",
+    subtitle: "Construction App – UX Case Study",
+    desc: "End-to-end UX research for a construction labour-hiring platform — from discovery interviews and journey maps to wireframes and usability testing.",
+    type: "UX Research",
+    year: "2024",
+    category: "UX",
+    image: "./Image/Frame 126.jpg",
+    link: "https://www.figma.com/proto/DhtI1swPsRFTuEzAN8Nh1r/ux-case-study?node-id=1150-16283",
+    tags: ["User Research", "Wireframing", "Usability Testing"],
+    accentColor: "#2C698D",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "LabourZone",
+    subtitle: "Construction App – UI Design",
+    desc: "High-fidelity UI screens for iOS & Android covering onboarding, job listings, worker profiles, and real-time booking flows.",
+    type: "UI Design",
+    year: "2024",
+    category: "UI",
+    image:"Images/Frame127.jpg",
+    link: "https://www.figma.com/proto/DhtI1swPsRFTuEzAN8Nh1r/ux-case-study?node-id=1250-4",
+    tags: ["Mobile UI", "Design System", "Prototyping"],
+    accentColor: "#007D94",
+    featured: false
+  },
+  {
+    id: 3,
+    title: "TrekVista",
+    subtitle: "Travel Website – UX Case Study",
+    desc: "A comprehensive UX audit and redesign of a travel booking platform, focusing on reducing drop-off rates and improving booking conversion.",
+    type: "UX Research",
+    year: "2024",
+    category: "UX",
+    image: "Images/Frame129.jpg",
+    link: "https://www.figma.com/proto/DhtI1swPsRFTuEzAN8Nh1r/ux-case-study?node-id=1152-30799",
+    tags: ["UX Audit", "Journey Mapping", "Information Architecture"],
+    accentColor: "#00B4D8",
+    featured: false
+  },
+  {
+    id: 4,
+    title: "TrekVista",
+    subtitle: "Travel Website – UI Design",
+    desc: "Pixel-perfect responsive UI for a travel discovery and booking site — featuring a dynamic homepage, search, filters, and checkout.",
+    type: "UI Design",
+    year: "2025",
+    category: "UI",
+    image: "Images/Frame128.jpg",
+    link: "https://www.figma.com/proto/DhtI1swPsRFTuEzAN8Nh1r/ux-case-study?node-id=1250-869",
+    tags: ["Web Design", "Responsive", "Interaction Design"],
+    accentColor: "#2C698D",
+    featured: false
+  },
+  {
+    id: 5,
+    title: "Relify",
+    subtitle: "CRM Dashboard Design",
+    desc: "A data-dense yet clean CRM dashboard for sales teams — complex data tables, KPI widgets, pipeline views, and an activity feed.",
+    type: "UI Design",
+    year: "2025",
+    category: "UI",
+    image: "Images/Frame130.jpg",
+    link: "https://www.figma.com/proto/bPXIC1hEV633Da0fHCG62K/Untitled?node-id=188-54",
+    tags: ["Dashboard", "Data Viz", "SaaS UI"],
+    accentColor: "#007D94",
+    featured: false
+  }
+];
+
+var currentFilter  = 'All';
+var currentProject = null;
+
+/* ════════════════════════════════════════════════
+   FILTER PILL — position the sliding bg
+═════════════════════════════════════════════════ */
+function positionPill(btn) {
+  var bar  = document.getElementById('filterBar');
+  var pill = document.getElementById('filterPillBg');
+  if (!bar || !pill || !btn) return;
+  var barRect = bar.getBoundingClientRect();
+  var btnRect = btn.getBoundingClientRect();
+  pill.style.left  = (btnRect.left - barRect.left) + 'px';
+  pill.style.width = btnRect.width + 'px';
+}
+
+/* ════════════════════════════════════════════════
+   SET FILTER
+═════════════════════════════════════════════════ */
+function setFilter(value, btn) {
+  if (value === currentFilter) return;
+  currentFilter = value;
+
+  /* Update button states */
+  document.querySelectorAll('.filter-btn').forEach(function (b) {
+    var active = b.dataset.filter === value;
+    b.classList.toggle('is-active', active);
+    b.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+
+  /* Move pill */
+  positionPill(btn);
+
+  /* Re-render */
+  renderFeatured();
+  renderGrid();
+}
+
+/* ════════════════════════════════════════════════
+   RENDER FEATURED CARD
+═════════════════════════════════════════════════ */
+function renderFeatured() {
+  var wrap = document.getElementById('featuredWrap');
+  if (!wrap) return;
+
+  if (currentFilter !== 'All') {
+    wrap.innerHTML = '';
+    return;
+  }
+
+  var p = PROJECTS.find(function (x) { return x.featured; });
+  if (!p) { wrap.innerHTML = ''; return; }
+
+  var tagsHtml = p.tags.map(function (t) {
+    return '<span class="feat-tag">' + escHtml(t) + '</span>';
+  }).join('');
+
+  wrap.innerHTML =
+    '<div class="tilt-card featured-card-outer animate-fade" onclick="openLightbox(' + p.id + ')" role="button" tabindex="0" aria-label="View ' + escHtml(p.title) + ' project">' +
+      '<div class="featured-inner">' +
+
+        /* Left — content */
+        '<div class="feat-content">' +
+          '<div class="feat-badges">' +
+            '<span class="badge badge--outline">Featured</span>' +
+            '<span class="badge badge--teal">UX Research</span>' +
+          '</div>' +
+          '<h3 class="feat-title">' + escHtml(p.title) + '</h3>' +
+          '<p class="feat-subtitle">' + escHtml(p.subtitle) + '</p>' +
+          '<p class="feat-desc">' + escHtml(p.desc) + '</p>' +
+          '<div class="feat-tags">' + tagsHtml + '</div>' +
+          '<span class="feat-cta-btn" onclick="event.stopPropagation(); window.open(\'' + p.link + '\',\'_blank\')">' +
+            'View Case Study' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>' +
+          '</span>' +
+        '</div>' +
+
+        /* Right — image */
+        '<div class="feat-img-wrap">' +
+          '<div class="feat-img-gradient" aria-hidden="true"></div>' +
+          '<img src="Images/Frame 126.jpg" alt="' + escHtml(p.title) + '" class="feat-img" />' +
+          '<span class="feat-year-badge">' + escHtml(p.year) + '</span>' +
+        '</div>' +
+
+      '</div>' +
+    '</div>';
+
+  /* Tilt + keyboard */
+  var card = wrap.querySelector('.tilt-card');
+  if (card) {
+    attachTilt(card);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') openLightbox(p.id);
+    });
+  }
+
+  /* Fade in */
+  requestAnimationFrame(function () {
+    var el = wrap.querySelector('.animate-fade');
+    if (el) { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; }
+    requestAnimationFrame(function () {
+      if (el) {
+        el.style.transition = 'opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    });
+  });
+}
+
+/* ════════════════════════════════════════════════
+   RENDER GRID
+═════════════════════════════════════════════════ */
+function renderGrid() {
+  var grid  = document.getElementById('projectGrid');
+  var empty = document.getElementById('emptyState');
+  if (!grid) return;
+
+  var list;
+  if (currentFilter === 'All') {
+    list = PROJECTS.filter(function (p) { return !p.featured; });
+  } else {
+    list = PROJECTS.filter(function (p) { return p.category === currentFilter; });
+  }
+
+  if (list.length === 0) {
+    grid.innerHTML  = '';
+    empty.classList.remove('hidden');
+    return;
+  }
+  empty.classList.add('hidden');
+
+  grid.innerHTML = list.map(function (p, i) {
+    var tags2 = p.tags.slice(0, 2).map(function (t) {
+      return '<span class="card-tag">' + escHtml(t) + '</span>';
+    }).join('');
+
+    return (
+      '<div class="grid-item" role="listitem" style="--i:' + i + '">' +
+        '<div class="tilt-card card-outer h-full" onclick="openLightbox(' + p.id + ')" role="button" tabindex="0" aria-label="View ' + escHtml(p.title) + ' project">' +
+          '<div class="card-inner">' +
+
+            /* Image area */
+            '<div class="card-img-area">' +
+              '<img src="' + p.image + '" alt="' + escHtml(p.title) + '" class="card-img Card_image_content" />' +
+              '<div class="card-hover-overlay" aria-hidden="true">' +
+                '<div class="card-view-pill">' +
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>' +
+                  'View Project' +
+                '</div>' +
+              '</div>' +
+              '<span class="card-type-badge" style="background:' + p.accentColor + '">' + escHtml(p.type) + '</span>' +
+              '<span class="card-year-badge">' + escHtml(p.year) + '</span>' +
+            '</div>' +
+
+            /* Content area */
+            '<div class="card-content">' +
+              '<h3 class="card-title">' + escHtml(p.title) + '</h3>' +
+              '<p class="card-subtitle">' + escHtml(p.subtitle) + '</p>' +
+              '<div class="card-tags">' + tags2 + '</div>' +
+              '<div class="card-footer">' +
+                '<span class="card-figma-link">' +
+                  'Open in Figma ' +
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>' +
+                '</span>' +
+                '<div class="card-arrow-btn" style="background:' + p.accentColor + '" aria-hidden="true">' +
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+
+  /* Attach tilt + keyboard + stagger */
+  grid.querySelectorAll('.tilt-card').forEach(function (card) {
+    attachTilt(card);
+    card.addEventListener('keydown', function (e) {
+      var id = parseInt(card.closest('.grid-item').querySelector('[onclick]').getAttribute('onclick').match(/\d+/)[0]);
+      if (e.key === 'Enter' || e.key === ' ') openLightbox(id);
+    });
+  });
+
+  /* Staggered fade-in for grid items */
+  grid.querySelectorAll('.grid-item').forEach(function (el, i) {
+    el.style.opacity   = '0';
+    el.style.transform = 'translateY(30px) scale(0.95)';
+    setTimeout(function () {
+      el.style.transition = 'opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.22,1,0.36,1)';
+      el.style.opacity   = '1';
+      el.style.transform = 'translateY(0) scale(1)';
+    }, i * 70);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   3D TILT EFFECT
+═════════════════════════════════════════════════ */
+function attachTilt(el) {
+  el.addEventListener('mousemove', function (e) {
+    var r  = el.getBoundingClientRect();
+    var x  = (e.clientX - r.left) / r.width  - 0.5;
+    var y  = (e.clientY - r.top)  / r.height - 0.5;
+    el.style.transition = 'transform 0.05s ease';
+    el.style.transform  = 'perspective(900px) rotateX(' + (-y * 12) + 'deg) rotateY(' + (x * 14) + 'deg) scale(1.02)';
+  });
+  el.addEventListener('mouseleave', function () {
+    el.style.transition = 'transform 0.55s cubic-bezier(0.22,1,0.36,1)';
+    el.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+  });
+  el.addEventListener('mousedown', function () {
+    el.style.transition = 'transform 0.15s ease';
+    el.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(0.98)';
+  });
+  el.addEventListener('mouseup', function () {
+    el.style.transition = 'transform 0.3s ease';
+    el.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+  });
+}
+
+/* ════════════════════════════════════════════════
+   LIGHTBOX
+═════════════════════════════════════════════════ */
+function openLightbox(id) {
+  var p = PROJECTS.find(function (x) { return x.id === id; });
+  if (!p) return;
+  currentProject = p;
+
+  /* Populate */
+  document.getElementById('lbImage').src     = p.image;
+  document.getElementById('lbImage').alt     = p.title;
+  document.getElementById('lbTitle').textContent    = p.title;
+  document.getElementById('lbSubtitle').textContent = p.subtitle;
+  document.getElementById('lbDesc').textContent     = p.desc;
+
+  /* Type badge with accent color */
+  var typeBadge = document.getElementById('lbTypeBadge');
+  typeBadge.textContent  = p.type;
+  typeBadge.style.background = p.accentColor;
+
+  document.getElementById('lbYearBadge').textContent = p.year;
+
+  /* Tags */
+  document.getElementById('lbTags').innerHTML = p.tags.map(function (t) {
+    return '<span class="lb-tag">' + escHtml(t) + '</span>';
+  }).join('');
+
+  /* Figma link gradient */
+  var lbLink = document.getElementById('lbFigmaLink');
+  lbLink.href = p.link;
+  lbLink.style.background = 'linear-gradient(135deg, ' + p.accentColor + ' 0%, #00E6E9 100%)';
+
+  /* Show */
+  var backdrop = document.getElementById('lbBackdrop');
+  var modal    = document.getElementById('lbModal');
+  backdrop.classList.remove('hidden');
+  backdrop.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+
+  /* Animate in */
+  backdrop.style.opacity = '0';
+  modal.style.opacity    = '0';
+  modal.style.transform  = 'translateY(60px) scale(0.94)';
+  requestAnimationFrame(function () {
+    backdrop.style.transition = 'opacity 0.3s ease';
+    modal.style.transition    = 'opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1)';
+    backdrop.style.opacity    = '1';
+    modal.style.opacity       = '1';
+    modal.style.transform     = 'translateY(0) scale(1)';
+  });
+}
+
+function closeLightbox(e) {
+  /* Called with event from backdrop (close only if clicking backdrop itself) */
+  if (e && e.target !== document.getElementById('lbBackdrop')) return;
+
+  var backdrop = document.getElementById('lbBackdrop');
+  var modal    = document.getElementById('lbModal');
+
+  backdrop.style.transition = 'opacity 0.25s ease';
+  modal.style.transition    = 'opacity 0.3s ease, transform 0.3s ease';
+  backdrop.style.opacity    = '0';
+  modal.style.opacity       = '0';
+  modal.style.transform     = 'translateY(40px) scale(0.94)';
+
+  setTimeout(function () {
+    backdrop.classList.add('hidden');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    currentProject = null;
+  }, 300);
+}
+
+/* ════════════════════════════════════════════════
+   CLOSE BUTTON (not backdrop)
+═════════════════════════════════════════════════ */
+document.getElementById('lbCloseBtn').addEventListener('click', function () {
+  var backdrop = document.getElementById('lbBackdrop');
+  var modal    = document.getElementById('lbModal');
+  backdrop.style.transition = 'opacity 0.25s ease';
+  modal.style.transition    = 'opacity 0.3s ease, transform 0.3s ease';
+  backdrop.style.opacity    = '0';
+  modal.style.opacity       = '0';
+  modal.style.transform     = 'translateY(40px) scale(0.94)';
+  setTimeout(function () {
+    backdrop.classList.add('hidden');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    currentProject = null;
+  }, 300);
+});
+
+/* ════════════════════════════════════════════════
+   KEYBOARD: Escape closes lightbox
+═════════════════════════════════════════════════ */
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && currentProject) {
+    document.getElementById('lbCloseBtn').click();
+  }
+});
+
+/* ════════════════════════════════════════════════
+   INTERSECTION OBSERVER — section header entrance
+═════════════════════════════════════════════════ */
+(function () {
+  var items = document.querySelectorAll('.animate-item');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        el.style.animationDelay = el.style.getPropertyValue('--delay') || '0s';
+        el.classList.add('is-visible');
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.05 });
+  items.forEach(function (el) { observer.observe(el); });
+})();
+
+/* ════════════════════════════════════════════════
+   UTILITY: HTML escape
+═════════════════════════════════════════════════ */
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* ════════════════════════════════════════════════
+   INIT
+═════════════════════════════════════════════════ */
+(function init() {
+  renderFeatured();
+  renderGrid();
+
+  /* Position pill on the initially-active button after layout */
+  setTimeout(function () {
+    var activeBtn = document.querySelector('.filter-btn.is-active');
+    positionPill(activeBtn);
+  }, 50);
+
+  /* Reposition pill on window resize */
+  window.addEventListener('resize', function () {
+    var activeBtn = document.querySelector('.filter-btn.is-active');
+    positionPill(activeBtn);
+  });
+})();
+</script>
+   </div>
+  </section>
+  <section id="contact"   class="demo-section" style="background:#111840;">
+   <div>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT SECTION
+  ════════════════════════════════════════════════ -->
+  <section id="contact" class="contact-section">
+
+    <!-- Gradient wash — bottom half -->
+    <div class="contact-wash" aria-hidden="true"></div>
+
+    <div class="contact-container">
+
+      <!-- ── HEADER ──────────────────────────────── -->
+      <div class="contact-header animate-item" style="--delay: 0s" id="contactHeader">
+        <span class="eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          Get in Touch
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <div class="heading-bar" aria-hidden="true"></div>
+        <p class="header-sub">
+          Have a project in mind? I'd love to collaborate. Send me a message and let's
+          create something extraordinary together.
+        </p>
+      </div>
+
+      <!-- ── MAIN GRID ───────────────────────────── -->
+      <div class="contact-grid">
+
+        <!-- LEFT — Info sidebar (col-span-2) -->
+        <div class="info-col animate-item animate-item--left" style="--delay: 0.2s">
+
+          <!-- Quick response chip -->
+          <div class="info-card info-card--quick">
+            <div class="info-icon-wrap info-icon-wrap--gradient">
+              <!-- MessageSquare icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="quick-title">Quick Response</p>
+              <p class="quick-sub">Typically within 24 hours</p>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="info-card animate-item animate-item--left" style="--delay: 0.3s">
+            <div class="info-icon-wrap" style="background: rgba(44,105,141,0.1);">
+              <!-- MapPin icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="#2C698D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-label">Location</p>
+              <p class="contact-value">Vijaya Nagar, Velachery, Chennai – 600042</p>
+            </div>
+          </div>
+
+          <!-- Phone / WhatsApp -->
+          <div class="info-card animate-item animate-item--left" style="--delay: 0.4s">
+            <div class="info-icon-wrap" style="background: rgba(0,125,148,0.1);">
+              <!-- Phone icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="#007D94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.91 5.91l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-label">Phone / WhatsApp</p>
+              <a href="https://wa.me/918248048372" target="_blank" rel="noopener noreferrer"
+                class="contact-link">+91 8248048372</a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="info-card animate-item animate-item--left" style="--delay: 0.5s">
+            <div class="info-icon-wrap" style="background: rgba(0,180,216,0.1);">
+              <!-- Mail icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-label">Email</p>
+              <a href="mailto:vigneshev03@gmail.com" class="contact-link">
+                vigneshev03@gmail.com
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /info-col -->
+
+
+        <!-- RIGHT — Contact form (col-span-3) -->
+        <form
+          id="contactForm"
+          class="contact-form animate-item animate-item--right"
+          style="--delay: 0.25s"
+          novalidate
+        >
+
+          <!-- Row: Name + Email -->
+          <div class="form-row-2col">
+
+            <div class="field-group">
+              <label for="name" class="field-label">Your Name</label>
+              <input
+                type="text" id="name" name="name" required
+                placeholder="Vignesh V."
+                class="field-input"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="field-group">
+              <label for="email" class="field-label">Email Address</label>
+              <input
+                type="email" id="email" name="email" required
+                placeholder="vignesh@gmail.com"
+                class="field-input"
+                autocomplete="email"
+              />
+            </div>
+
+          </div>
+
+          <!-- Subject -->
+          <div class="field-group">
+            <label for="subject" class="field-label">Subject</label>
+            <input
+              type="text" id="subject" name="subject" required
+              placeholder="Project enquiry…"
+              class="field-input"
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="field-group">
+            <label for="message" class="field-label">Message</label>
+            <textarea
+              id="message" name="message" required rows="5"
+              placeholder="Tell me about your project and goals…"
+              class="field-input field-textarea"
+            ></textarea>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-inner" id="btnInner">
+              <!-- Send icon -->
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              Send Message
+            </span>
+            <span class="btn-inner btn-inner--success hidden" id="btnSuccess" aria-live="polite">
+              <!-- CheckCircle icon -->
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              Message Sent! I'll Reply Soon.
+            </span>
+          </button>
+
+        </form><!-- /contact-form -->
+      </div><!-- /contact-grid -->
+    </div><!-- /contact-container -->
+  </section>
+
+
+  <!-- ─── Scroll-reveal + form logic ───────────── -->
+  <script>
+    /* ── 1. IntersectionObserver scroll reveal ── */
+    (function () {
+      const items = document.querySelectorAll('.animate-item');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              el.style.animationDelay = el.style.getPropertyValue('--delay') || '0s';
+              el.classList.add('is-visible');
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+      items.forEach((el) => observer.observe(el));
+    })();
+
+    /* ── 2. Form submission ─────────────────────── */
+    (function () {
+      const form       = document.getElementById('contactForm');
+      const submitBtn  = document.getElementById('submitBtn');
+      const btnInner   = document.getElementById('btnInner');
+      const btnSuccess = document.getElementById('btnSuccess');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        /* Basic HTML5 validation */
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        /* Show success state */
+        submitBtn.classList.add('submit-btn--sent');
+        btnInner.classList.add('hidden');
+        btnSuccess.classList.remove('hidden');
+
+        /* Reset form fields */
+        form.reset();
+
+        /* Revert button after 5 seconds */
+        setTimeout(function () {
+          submitBtn.classList.remove('submit-btn--sent');
+          btnInner.classList.remove('hidden');
+          btnSuccess.classList.add('hidden');
+        }, 5000);
+      });
+
+      /* Focus ring on inputs: add/remove class */
+      const inputs = form.querySelectorAll('.field-input');
+      inputs.forEach(function (input) {
+        input.addEventListener('focus', function () {
+          this.closest('.field-group').classList.add('is-focused');
+        });
+        input.addEventListener('blur', function () {
+          this.closest('.field-group').classList.remove('is-focused');
+        });
+      });
+    })();
+  </script> 
+
+  <body>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer id="footer" class="site-footer">
+
+    <!-- Dot-grid texture -->
+    <div class="footer-dots" aria-hidden="true"></div>
+
+    <!-- Top radial glow -->
+    <div class="footer-glow" aria-hidden="true"></div>
+
+
+    <!-- ── CTA BANNER ────────────────────────────── -->
+    <div class="cta-banner animate-item" style="--delay: 0s" id="footerObserveTarget">
+      <div class="footer-container cta-inner">
+
+        <!-- Left copy -->
+        <div class="cta-copy">
+          <p class="cta-eyebrow">Ready to collaborate?</p>
+          <h2 class="cta-title">
+            Thank you for
+            <span class="gradient-text"> Watching</span>
+          </h2>
+          <p class="cta-sub">Let's build something extraordinary together.</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="cta-btns">
+          <a href="#contact" class="btn-primary" onclick="smoothScrollTo('contact', event)">
+            Let's Connect
+            <!-- ArrowUpRight icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="https://wa.me/918248048372" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+            WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div><!-- /cta-banner -->
+
+
+    <!-- ── FOOTER GRID ───────────────────────────── -->
+    <div class="footer-container footer-grid">
+
+      <!-- Col 1 — Brand -->
+      <div class="footer-brand animate-item" style="--delay: 0.1s">
+        <p class="brand-logo">V<span class="logo-dot">.</span></p>
+        <p class="brand-desc">
+          A passionate UI/UX Designer crafting meaningful,
+          user-centered digital experiences.
+        </p>
+        <!-- Social icons -->
+        <div class="social-row">
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/vignesh-v-ev03/"
+            target="_blank" rel="noopener noreferrer"
+            class="social-btn" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com/grafizen_stylz"
+            target="_blank" rel="noopener noreferrer"
+            class="social-btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+
+        </div>
+      </div><!-- /brand -->
+
+
+      <!-- Col 2 — Navigation -->
+      <div class="footer-col animate-item" style="--delay: 0.18s">
+        <p class="col-heading">Navigation</p>
+        <ul class="footer-list">
+          <li><a href="#home"      class="footer-link" onclick="smoothScrollTo('home', event)">Home</a></li>
+          <li><a href="#about"     class="footer-link" onclick="smoothScrollTo('about', event)">About</a></li>
+          <li><a href="#skills"    class="footer-link" onclick="smoothScrollTo('skills', event)">Skills</a></li>
+          <li><a href="#services"  class="footer-link" onclick="smoothScrollTo('services', event)">Services</a></li>
+          <li><a href="#portfolio" class="footer-link" onclick="smoothScrollTo('portfolio', event)">Portfolio</a></li>
+          <li><a href="#contact"   class="footer-link" onclick="smoothScrollTo('contact', event)">Contact</a></li>
+        </ul>
+      </div><!-- /navigation -->
+
+
+      <!-- Col 3 — Services -->
+      <div class="footer-col animate-item" style="--delay: 0.25s">
+        <p class="col-heading">Services</p>
+        <ul class="footer-list">
+          <li><span class="footer-text">UI/UX Design</span></li>
+          <li><span class="footer-text">Graphic Design</span></li>
+          <li><span class="footer-text">UX Strategy</span></li>
+          <li><span class="footer-text">Prototyping</span></li>
+          <li><span class="footer-text">User Research</span></li>
+        </ul>
+      </div><!-- /services -->
+
+
+      <!-- Col 4 — Contact -->
+      <div class="footer-col animate-item" style="--delay: 0.32s">
+        <p class="col-heading">Contact</p>
+        <div class="contact-block">
+          <p class="footer-text footer-text--address">
+            Vijaya Nagar, Velachery,<br />
+            Tamil Nadu, Chennai – 600042
+          </p>
+          <a href="https://wa.me/918248048372"
+            class="footer-text footer-link-teal">
+            +91 8248048372
+          </a>
+          <a href="mailto:vigneshev03@gmail.com"
+            class="footer-text footer-link-teal footer-link-teal--lower">
+            vigneshev03@gmail.com
+          </a>
+        </div>
+      </div><!-- /contact -->
+
+    </div><!-- /footer-grid -->
+
+
+    <!-- ── BOTTOM BAR ────────────────────────────── -->
+    <div class="bottom-bar">
+      <div class="footer-container bottom-inner">
+
+        <!-- Copyright -->
+        <p class="copyright">
+          &copy; <span id="currentYear"></span> Vignesh V. — Designed with&nbsp;
+          <!-- Heart icon -->
+          <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" width="11" height="11"
+            viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          &nbsp;All rights reserved.
+        </p>
+
+        <!-- Back to top -->
+        <button
+          class="back-top-btn"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          aria-label="Back to top"
+        >
+          <!-- ChevronUp icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+
+      </div>
+    </div><!-- /bottom-bar -->
+
+  </footer>
+
+
+  <!-- ─── Scripts ────────────────────────────────── -->
+  <script>
+    /* ── Dynamic year ─────────────────────────── */
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    /* ── Smooth scroll helper ─────────────────── */
+    function smoothScrollTo(id, event) {
+      if (event) event.preventDefault();
+      var target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        /* If section isn't on this standalone page, gracefully ignore */
+        window.location.hash = id;
+      }
+    }
+
+    /* ── IntersectionObserver scroll reveal ───── */
+    (function () {
+      var items = document.querySelectorAll('.animate-item');
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              el.style.animationDelay = el.style.getPropertyValue('--delay') || '0s';
+              el.classList.add('is-visible');
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+   </div>
+  </section>
+
+
+  <!-- ─── Scripts ────────────────────────────────── -->
+  <script>
+    /* ════════════════════════════════════════════
+       CONSTANTS
+    ═════════════════════════════════════════════ */
+    var sections    = ['home','about','skills','services','portfolio','contact'];
+    var mobileOpen  = false;
+
+    /* ════════════════════════════════════════════
+       SCROLL PROGRESS BAR
+       scaleX: 0 → 1 mapped from scrollY / maxScroll
+    ═════════════════════════════════════════════ */
+    var progressBar = document.getElementById('scrollProgress');
+
+    function updateProgress() {
+      var maxScroll = document.body.scrollHeight - window.innerHeight;
+      var pct = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      progressBar.style.transform = 'scaleX(' + pct + ')';
+    }
+
+    /* ════════════════════════════════════════════
+       NAVBAR BACKGROUND — transparent → frosted
+    ═════════════════════════════════════════════ */
+    var navbar = document.getElementById('navbar');
+
+    function updateNavBg() {
+      if (window.scrollY > 40) {
+        navbar.classList.add('is-scrolled');
+      } else {
+        navbar.classList.remove('is-scrolled');
+      }
+    }
+
+    /* ════════════════════════════════════════════
+       ACTIVE SECTION DETECTION
+    ═════════════════════════════════════════════ */
+    function updateActiveSection() {
+      var active = sections[0];
+      for (var i = sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(sections[i]);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          active = sections[i];
+          break;
+        }
+      }
+      setActive(active);
+    }
+
+    function setActive(sectionId) {
+      /* Desktop links */
+      document.querySelectorAll('.nav-link').forEach(function (a) {
+        if (a.dataset.section === sectionId) {
+          a.classList.add('is-active');
+        } else {
+          a.classList.remove('is-active');
+        }
+      });
+      /* Mobile links */
+      document.querySelectorAll('.mobile-link').forEach(function (a) {
+        if (a.dataset.section === sectionId) {
+          a.classList.add('is-active');
+        } else {
+          a.classList.remove('is-active');
+        }
+      });
+    }
+
+    /* ════════════════════════════════════════════
+       SCROLL EVENT (passive, batched)
+    ═════════════════════════════════════════════ */
+    window.addEventListener('scroll', function () {
+      updateProgress();
+      updateNavBg();
+      updateActiveSection();
+    }, { passive: true });
+
+    /* Init on load */
+    updateProgress();
+    updateNavBg();
+    updateActiveSection();
+
+    /* ════════════════════════════════════════════
+       SMOOTH SCROLL + CLOSE MOBILE MENU
+    ═════════════════════════════════════════════ */
+    function handleNavClick(href, event) {
+      if (event) event.preventDefault();
+      var id = href.replace('#', '');
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (mobileOpen) closeMobile();
+    }
+
+    /* ════════════════════════════════════════════
+       MOBILE MENU TOGGLE
+    ═════════════════════════════════════════════ */
+    var mobileMenu  = document.getElementById('mobileMenu');
+    var hamburger   = document.getElementById('hamburger');
+    var iconMenu    = document.getElementById('iconMenu');
+    var iconClose   = document.getElementById('iconClose');
+
+    function openMobile() {
+      mobileOpen = true;
+      mobileMenu.classList.add('is-open');
+      hamburger.classList.add('is-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Close menu');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; /* prevent background scroll */
+    }
+
+    function closeMobile() {
+      mobileOpen = false;
+      mobileMenu.classList.remove('is-open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function toggleMobile() {
+      if (mobileOpen) { closeMobile(); } else { openMobile(); }
+    }
+
+    /* Close on outside click */
+    document.addEventListener('click', function (e) {
+      if (mobileOpen && !navbar.contains(e.target)) {
+        closeMobile();
+      }
+    });
+
+    /* Close on Escape */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileOpen) closeMobile();
+    });
+  </script>
+
+</body>
+</html>
